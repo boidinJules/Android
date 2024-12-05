@@ -1,50 +1,32 @@
 package com.example.myapplication14146
 
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication14146.R
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var btnRouge: Button
-    private lateinit var btnVert: Button
-    private lateinit var btnBleu: Button
+    private lateinit var ledButton: ImageButton
     private lateinit var myLayout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialisation des boutons et du layout
-        btnRouge = findViewById(R.id.buttonrouge)
-        btnBleu = findViewById(R.id.buttonviolet)
-        btnVert = findViewById(R.id.buttonvert)
+        // Initialisation du ImageButton et du FrameLayout
+        ledButton = findViewById(R.id.ledButton)
         myLayout = findViewById(R.id.FrameLayout)
 
-        // Événement pour le bouton bleu
-        btnBleu.setOnClickListener {
-            myLayout.setBackgroundResource(R.drawable.android_blue) // Image bleue
-            showToast("Il fait Bleu")
+        // Événement pour changer l'image du toggle à chaque clic
+        ledButton.setOnClickListener {
+            // Si l'image actuelle est toggle_off, changer pour toggle_on et mettre led_on dans le FrameLayout
+            if (ledButton.drawable.constantState == resources.getDrawable(R.drawable.toggle_off).constantState) {
+                ledButton.setImageResource(R.drawable.toggle_on)  // Changer pour toggle_on
+                myLayout.setBackgroundResource(R.drawable.led_on)  // Mettre led_on dans le FrameLayout
+            } else {
+                ledButton.setImageResource(R.drawable.toggle_off)  // Changer pour toggle_off
+                myLayout.setBackgroundResource(R.drawable.led_off)  // Mettre led_off dans le FrameLayout
+            }
         }
-
-        // Événement pour le bouton vert
-        btnVert.setOnClickListener {
-            myLayout.setBackgroundResource(R.drawable.android_green) // Image verte
-            showToast("Il fait Vert")
-        }
-
-        // Événement pour le bouton rouge
-        btnRouge.setOnClickListener {
-            myLayout.setBackgroundResource(R.drawable.android_red) // Image rouge
-            showToast("Il fait Rouge")
-        }
-    }
-
-    // Méthode pour afficher un message toast
-    private fun showToast(message: String) {
-        val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
-        toast.show()
     }
 }
