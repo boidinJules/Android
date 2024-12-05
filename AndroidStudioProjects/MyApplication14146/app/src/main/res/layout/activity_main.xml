@@ -1,51 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.myapplication14146.MainActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- TextView en haut -->
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="71dp"
+        android:background="#8A2BE2"
+        android:gravity="center"
+        android:text="Exercice1"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:id="@+id/panelCouleur"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="0.89">
-        </FrameLayout>
+    <!-- FrameLayout sous le TextView -->
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonRouge"
-            android:hint="rouge"
-            android:background="@color/colorRouge"
-            android:textSize="30dp" />
+    <!-- Bouton Rouge -->
+    <Button
+        android:id="@+id/buttonrouge"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#FF0000"
+        android:text="Rouge"
+        app:layout_constraintTop_toBottomOf="@id/FrameLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonVert"
-            android:hint="vert"
-            android:background="@color/colorVert"
-            android:textSize="30dp" />
+    <!-- Bouton Vert -->
+    <Button
+        android:id="@+id/buttonvert"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#43A047"
+        android:text="Vert"
+        app:layout_constraintTop_toBottomOf="@id/buttonrouge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonBleu"
-            android:hint="bleu"
-            android:background="@color/colorBleu"
-            android:textSize="30dp" />
+    <!-- Bouton Violet -->
+    <Button
+        android:id="@+id/buttonviolet"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#3949AB"
+        android:text="Violet"
+        app:layout_constraintTop_toBottomOf="@id/buttonvert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
